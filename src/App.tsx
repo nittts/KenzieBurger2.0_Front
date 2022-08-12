@@ -1,5 +1,12 @@
+import { AnimatePresence } from "framer-motion";
+import GlobalStyle from "./Styles/Global";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <AnimatePresence>
+      <GlobalStyle />
+    </AnimatePresence>
+  );
 }
 
 export default App;
