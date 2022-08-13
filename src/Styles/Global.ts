@@ -6,13 +6,13 @@ const GlobalStyle = createGlobalStyle<IThemeData>`
         width: 100vw;
         min-height: 100vh;
         background-color: ${({ theme }) => {
-          return theme.color[1];
+          return theme.color[600];
         }};
     }
 
     * {
         box-sizing: border-box;
-        transition: all cubic-bezier(0.215, 0.610, 0.355, 1) ease-in-out;
+        transition: all 0.2s ease-in-out;
     }
 
     a, button {
@@ -28,9 +28,9 @@ const GlobalStyle = createGlobalStyle<IThemeData>`
     --color-primary: #27ae60;
     --color-primary-light:#38d279;
     //
-    --color-primary-dark:#e41d1d;
+    --color-secondary-dark:#e41d1d;
     --color-secondary: #eb5757;
-    --color-primary-light:#f49f9f;
+    --color-secondary-light:#f49f9f;
 
 
     /* ----------------------------------- // ---------------------------------- */
@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle<IThemeData>`
     --dark-color-1: #000000 ; //status Bar
     --dark-color-2: #212121 ; //app Bar
     --dark-color-3: #303030 ; //background
-    --dark-color-4: #424242 ; //cards/dialogs
+    --dark-color-4: #f5f5f5 ; //cards/dialogs
         
     /* Feedback Pallete */
     

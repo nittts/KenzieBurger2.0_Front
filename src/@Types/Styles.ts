@@ -1,10 +1,10 @@
 export interface IThemeData {
   theme: {
     color: {
-      "1": string;
-      "2": string;
-      "3": string;
-      "4": string;
+      600: string;
+      700: string;
+      800: string;
+      900: string;
     };
     sizes: {
       xsmall: string;

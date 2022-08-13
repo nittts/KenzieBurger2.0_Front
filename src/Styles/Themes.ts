@@ -1,9 +1,9 @@
 const LightTheme = {
   color: {
-    "1": "var(--light-color-1)",
-    "2": "var(--light-color-2)",
-    "3": "var(--light-color-3)",
-    "4": "var(--light-color-4)",
+    600: "var(--light-color-1)",
+    700: "var(--light-color-2)",
+    800: "var(--light-color-3)",
+    900: "var(--light-color-4)",
   },
   //
   sizes: {
@@ -40,10 +40,10 @@ const LightTheme = {
 
 const DarkTheme = {
   color: {
-    "1": "var(--dark-color-1)",
-    "2": "var(--dark-color-2)",
-    "3": "var(--dark-color-3)",
-    "4": "var(--dark-color-4)",
+    600: "var(--dark-color-1)",
+    700: "var(--dark-color-2)",
+    800: "var(--dark-color-3)",
+    900: "var(--dark-color-4)",
   },
   //
   sizes: {
