@@ -2,11 +2,12 @@ import { createGlobalStyle } from "styled-components";
 import { IThemeData } from "../@Types/Styles";
 
 const GlobalStyle = createGlobalStyle<IThemeData>`
+
    body {
         width: 100vw;
         min-height: 100vh;
         background-color: ${({ theme }) => {
-          return theme.color[600];
+          return theme.color[700];
         }};
     }
 
