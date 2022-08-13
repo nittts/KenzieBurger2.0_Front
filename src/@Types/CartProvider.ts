@@ -16,4 +16,5 @@ export interface ICartContextData {
   cart: Product[];
   addToCart: (product: Product) => void;
   removeFromCart: (productIndex: number) => void;
+  setCart: (Array: Product[]) => void;
 }

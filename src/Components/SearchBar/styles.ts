@@ -58,13 +58,15 @@ export const Container = styled.div`
     cursor: pointer;
     background-color: ${({ theme }) => theme.accentGreen.Light};
   }
+`;
 
-  .open {
-    background-color: #fff;
-    z-index: 2;
-    position: absolute;
-    top: 2vh;
-    left: 2vw;
-    width: 95vw;
+export const ClosedContainer = styled.div`
+  button {
+    display: flex;
+    align-items: center;
+
+    svg {
+      font-size: 1.7rem;
+    }
   }
 `;

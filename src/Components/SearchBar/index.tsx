@@ -1,26 +1,25 @@
 import { useEffect, useState } from "react";
-import { Container } from "./styles";
+import { ClosedContainer, Container } from "./styles";
 import { FaSearch } from "react-icons/fa";
 
-export default function SearchBar() {
+interface ISearchProps {
+  showProducts?: (input: string) => void;
+}
+
+export default function SearchBar({ showProducts }: ISearchProps) {
   const [userInput, setUserInput] = useState("");
 
   const handleUserInput = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
-  const [width, setWidth] = useState(window.innerWidth);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-  }, []);
-
   return (
-    <Container>
-      <form onSubmit={(event) => handleUserInput(event)} className={width < 800 ? "open" : ""}>
-        {open ? (
-          <>
+    <>
+      {open ? (
+        <Container>
+          <form onSubmit={(event) => handleUserInput(event)}>
             <input
               type={"text"}
               onChange={(e) => setUserInput(e.target.value)}
@@ -28,24 +27,25 @@ export default function SearchBar() {
             />
             <button
               onClick={() => {
-                console.log(userInput);
+                showProducts?.(userInput);
+                setOpen(false);
               }}
             >
               <FaSearch />
             </button>
-          </>
-        ) : (
-          <>
-            <button
-              onClick={() => {
-                setOpen(true);
-              }}
-            >
-              <FaSearch />
-            </button>
-          </>
-        )}
-      </form>
-    </Container>
+          </form>
+        </Container>
+      ) : (
+        <ClosedContainer>
+          <button
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            <FaSearch />
+          </button>
+        </ClosedContainer>
+      )}
+    </>
   );
 }

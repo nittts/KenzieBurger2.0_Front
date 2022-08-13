@@ -35,10 +35,10 @@ export const Content = styled.div`
   }
   .Product-img img {
     height: 100%;
-    width: 45%;
+    width: 50%;
   }
 
-  .product .prod-title,
+  .prod-title,
   .rod-cat,
   .prod-price,
   button {
@@ -67,7 +67,7 @@ export const Content = styled.div`
   }
 
   button {
-    width: 25%;
+    width: 35%;
 
     border: none;
     border-radius: 8px;
@@ -75,11 +75,12 @@ export const Content = styled.div`
     background-color: ${({ theme }) => theme.color[700]};
     padding: 2%;
     margin-top: 5%;
-    font-size: 1rem;
+    margin-left: 5%;
+    font-size: 0.7rem;
   }
 
-  .product:hover {
-    border: 1px solid #32b467;
+  :hover {
+    border: 0.2rem solid #32b467;
   }
 
   button:hover {
@@ -88,35 +89,83 @@ export const Content = styled.div`
   }
 
   @media only screen and (max-width: 1440px) {
-    .product .prod-title {
-      font-size: 1.4em;
+    .prod-title {
+      font-size: 2em;
+    }
+
+    .Product-img img {
+      width: 55%;
     }
   }
 
   @media only screen and (max-width: 1100px) {
-    .product .prod-title {
+    .prod-title {
       font-size: 1.3em;
     }
   }
 
   @media only screen and (max-width: 768px) {
-    .product {
+    width: 95vw;
+    height: 85vh;
+    margin: 0 2.5vw;
+
+    .prod-cat {
+      font-weight: lighter;
+      font-size: 1.5em;
+    }
+
+    .Product-img {
+      width: 93.5vw;
+    }
+
+    .Product-img img {
+      width: 45%;
+    }
+
+    .prod-title {
+      font-size: 3em;
+    }
+
+    .prod-price {
+      font-size: 2em;
+    }
+  }
+
+  @media only screen and (max-width: 475px) {
+    width: 95vw;
+    height: 70vh;
+    margin: 0 2.5vw;
+
+    .prod-cat {
+      font-weight: lighter;
+      font-size: 1.5em;
+    }
+
+    .Product-img {
+      width: 93.5vw;
+    }
+
+    .Product-img img {
       width: 70%;
     }
 
-    .prod-cat {
-      margin: 1%;
-      font-weight: lighter;
-      font-size: 2em;
+    .prod-title {
+      font-size: 3em;
     }
 
-    .product .prod-title {
-      font-size: 3em;
+    .prod-price {
+      font-size: 2em;
     }
   }
 
   @media only screen and (max-width: 375px) {
-    .product .prod-title {
+    height: 55vh;
+
+    .Product-img img {
+      width: 50%;
+    }
+
+    .prod-title {
       font-size: 2.5em;
     }
   }

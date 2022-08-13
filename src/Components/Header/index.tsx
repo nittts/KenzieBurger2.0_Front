@@ -3,14 +3,14 @@ import { Container, LogoContainer, Content } from "./style";
 import { MdOutlineLogout } from "react-icons/md";
 import CartIcon from "../CartIcon";
 import SearchBar from "../SearchBar";
-import { SetStateAction, useEffect, useState } from "react";
+import { useAuth } from "../../Contexts/Authorization";
 
-export default function Header() {
-  const [width, setWidth] = useState(window.innerWidth);
+interface IHeaderProps {
+  showProducts?: (input: string) => void;
+}
 
-  useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-  }, []);
+export default function Header({ showProducts }: IHeaderProps) {
+  const { logOut } = useAuth();
 
   return (
     <Container>
@@ -21,15 +21,9 @@ export default function Header() {
         </h1>
       </LogoContainer>
       <Content>
-        {width < 800 ? (
-          <SearchBar />
-        ) : (
-          <>
-            <SearchBar />
-            <CartIcon />
-            <MdOutlineLogout />
-          </>
-        )}
+        <SearchBar showProducts={showProducts} />
+        <CartIcon />
+        <MdOutlineLogout onClick={logOut} />
       </Content>
     </Container>
   );

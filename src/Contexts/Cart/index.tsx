@@ -24,7 +24,7 @@ const CartProvider = ({ children }: ICartProviderProps) => {
 
   const removeFromCart = useCallback(
     (productIndex: number) => {
-      const filteredCart = cart.filter((_, index) => index === productIndex);
+      const filteredCart = cart.filter((_, index) => index !== productIndex);
       localStorage.setItem("@KenzieBurger:cart", JSON.stringify(filteredCart));
       setCart(filteredCart);
     },
@@ -32,7 +32,7 @@ const CartProvider = ({ children }: ICartProviderProps) => {
   );
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, setCart }}>
       {children}
     </CartContext.Provider>
   );

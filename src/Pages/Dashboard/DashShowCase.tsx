@@ -19,6 +19,7 @@ export default function DashShowCase({ products }: DashShowCaseProps) {
             price={product.price}
             image={product.image}
             id={product.id}
+            product={product}
           />
         );
       })}

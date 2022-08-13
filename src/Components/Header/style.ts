@@ -13,8 +13,8 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 50%;
+  justify-content: space-evenly;
+  width: 20%;
   height: 100%;
 
   svg {
@@ -24,7 +24,12 @@ export const Content = styled.div`
 
     :hover {
       color: ${({ theme }) => theme.color[900]};
+      cursor: pointer;
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 30%;
   }
 `;
 export const LogoContainer = styled.div`

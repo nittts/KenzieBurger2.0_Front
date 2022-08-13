@@ -6,6 +6,7 @@ import {
 } from "../../@Types/AuthorizationProvider";
 
 import API from "../../Services/API";
+import { useCart } from "../Cart";
 
 const AuthContext = createContext<IAuthContextData>({} as IAuthContextData);
 
@@ -20,6 +21,8 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
 
     return {} as IAuthData;
   });
+
+  const { setCart } = useCart();
 
   const signIn = useCallback(async (email: string, password: string) => {
     await API.post("/login", { email, password })
@@ -37,6 +40,8 @@ const AuthProvider = ({ children }: IAuthProviderProps) => {
   const logOut = useCallback(() => {
     localStorage.removeItem("@KenzieBurger:user");
     localStorage.removeItem("@KenzieBurger:accessToken");
+    localStorage.removeItem("@KenzieBurger:cart");
+    setCart([]);
     setData({} as IAuthData);
   }, []);
 

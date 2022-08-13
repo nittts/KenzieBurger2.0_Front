@@ -8,12 +8,12 @@ import { IProviderProps } from "../@Types/Providers";
 
 export default function Providers({ children }: IProviderProps) {
   return (
-    <AuthProvider>
-      <ChakraProvider>
-        <CartProvider>
+    <CartProvider>
+      <AuthProvider>
+        <ChakraProvider>
           <DarkModeProvider>{children}</DarkModeProvider>
-        </CartProvider>
-      </ChakraProvider>
-    </AuthProvider>
+        </ChakraProvider>
+      </AuthProvider>
+    </CartProvider>
   );
 }

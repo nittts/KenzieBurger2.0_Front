@@ -25,8 +25,8 @@ export const Container = styled.div<ICartIconProps>`
       text-align: center;
       position: absolute;
       padding: 0.25%;
-      max-width: 1.5%;
-      min-width: 1.5%;
+      max-width: 2%;
+      min-width: 2%;
       margin-left: 2%;
       margin-bottom: 1.5%;
       font-size: 0.9rem;
@@ -35,9 +35,10 @@ export const Container = styled.div<ICartIconProps>`
       border-radius: 25%;
       font-weight: bolder;
 
-      @media (max-width: 425px) {
-        min-width: 5%;
-        max-width: 5%;
+      @media (max-width: 1100px) {
+        min-width: 3.5%;
+        max-width: 3.5%;
+        font-size: 0.5rem;
       }
     }
   }
