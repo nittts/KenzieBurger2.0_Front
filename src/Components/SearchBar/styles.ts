@@ -12,7 +12,19 @@ export const Container = styled.div`
     justify-content: center;
     border: 3px solid ${({ theme }) => theme.color[700]};
     border-radius: 8px;
-    width: 100%;
+    width: 97vw;
+    position: absolute;
+    left: 1vw;
+    top: 2.5vh;
+
+    @media screen and (min-width: 900px) {
+      width: 100%;
+      position: static;
+    }
+
+    @media screen and (max-width: 700px) {
+      background-color: white;
+    }
   }
 
   form input {

@@ -5,11 +5,17 @@ import { motion } from "framer-motion";
 import Header from "../../Components/Header";
 import DashShowCase from "./DashShowCase";
 import { Flex, Spinner } from "@chakra-ui/react";
+import CartModal from "../../Components/CartModal";
 
 export default function Dashboard() {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+  const [modal, setModal] = useState(false);
+
+  const handleModal = () => {
+    setModal(!modal);
+  };
 
   useEffect(() => {
     loadProducts();
@@ -23,21 +29,18 @@ export default function Dashboard() {
   };
 
   const showProducts = (userInput: string) => {
-    const productsArr = [...products];
-
-    const filteredProdArr = productsArr.filter(
+    const filteredProdArr = products.filter(
       (prod) =>
-        prod.title.toLowerCase() === userInput.toLowerCase() ||
-        prod.category.toLowerCase() === userInput.toLowerCase()
+        prod.title.toLowerCase().includes(userInput.toLowerCase()) ||
+        prod.category.toLowerCase().includes(userInput.toLowerCase())
     );
-
     setFilteredProducts(filteredProdArr);
   };
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-      <Header showProducts={showProducts} />
-
+      {modal && <CartModal handleModal={handleModal} />}
+      <Header showProducts={showProducts} handleModal={handleModal} />
       {loading ? (
         <Flex align={"center"} justifyContent={"center"} w={"100vw"} h={"90vh"}>
           <Spinner

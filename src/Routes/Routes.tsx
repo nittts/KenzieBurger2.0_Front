@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 
-import Cart from "../Pages/Cart";
 import Dashboard from "../Pages/Dashboard";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
@@ -16,7 +15,6 @@ export default function Router() {
       <Route path={"/register"} element={<Register />} />
       <Route element={<ProtectedRoute />}>
         <Route path={"/dashboard"} element={<Dashboard />} />
-        <Route path={"/cart"} element={<Cart />} />
       </Route>
       <Route path={"*"} element={<NotFound />} />
     </Routes>

@@ -4,17 +4,25 @@ import { MdOutlineLogout } from "react-icons/md";
 import CartIcon from "../CartIcon";
 import SearchBar from "../SearchBar";
 import { useAuth } from "../../Contexts/Authorization";
+import { useNavigate } from "react-router-dom";
+import { Product } from "../../@Types/CartProvider";
 
 interface IHeaderProps {
   showProducts?: (input: string) => void;
+  handleModal: () => void;
 }
 
-export default function Header({ showProducts }: IHeaderProps) {
+export default function Header({ showProducts, handleModal }: IHeaderProps) {
   const { logOut } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <Container>
-      <LogoContainer>
+      <LogoContainer
+        onClick={() => {
+          navigate("/dashboard");
+        }}
+      >
         <h1>
           <FaHamburger />
           Burger<span>Kenzie</span>
@@ -22,7 +30,7 @@ export default function Header({ showProducts }: IHeaderProps) {
       </LogoContainer>
       <Content>
         <SearchBar showProducts={showProducts} />
-        <CartIcon />
+        <CartIcon handleModal={handleModal} />
         <MdOutlineLogout onClick={logOut} />
       </Content>
     </Container>
