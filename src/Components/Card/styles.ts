@@ -4,13 +4,14 @@ export const Content = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: flex-start;
+  justify-content: flex-start;
   font-family: ${({ theme }) => theme.fontFamily};
   color: black;
   font-size: 0.5em;
 
   margin: 0.5%;
 
-  width: 20%;
+  width: 21%;
   height: 45%;
   background-color: #f5f5f5;
 
